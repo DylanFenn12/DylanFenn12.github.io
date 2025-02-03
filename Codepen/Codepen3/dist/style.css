@@ -116,5 +116,5 @@ body {
   display: grid;
   gap: 20px;
   place-content: center;
-  background: repeating-linear-gradient(-45deg, #ffffff4e 0 20px, #ff0000 0 40px);
+  background: repeating-linear-gradient(-45deg, #ffffff4e 0 20px, #ff000053 0 40px);
 }
