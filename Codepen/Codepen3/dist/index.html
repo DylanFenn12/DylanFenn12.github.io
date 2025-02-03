@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS-only Custom range slider</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<label>
+  <input type="range" id="one" min="0" max="120" step="1" value="20">
+  <output for="one" style="--min: 0;--max: 120"></output>
+</label>  
+<label style="--c: #BD1550">
+  <input type="range" id="two" min="-50" max="50" step="1" value="0">
+  <output class="bottom" for="two" style="--min: -50;--max: 50"></output>
+</label>
+<!-- partial -->
+  
+</body>
+</html>
