@@ -7,6 +7,12 @@
 
 body {
   perspective: 100vmin;
+  background: linear-gradient(to right, rgb(47, 0, 255), rgb(0, 171, 14));
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, system-ui;
 }
 
 img {
@@ -145,7 +151,7 @@ html {
   }
 
   body {
-    background: light-dark(#fff, #000);
+    background: linear-gradient(to right, blue, red);
     display: grid;
     place-items: center;
     min-height: 100vh;
@@ -168,8 +174,8 @@ html {
         50% 50% / var(--size) var(--size),
       linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
         var(--size) var(--size);
-    -webkit-mask: linear-gradient(-20deg, transparent 50%, white);
-            mask: linear-gradient(-20deg, transparent 50%, white);
+    -webkit-mask: linear-gradient(-20deg, transparent 50%, rgb(255, 0, 0));
+            mask: linear-gradient(-20deg, transparent 50%, rgb(255, 0, 0));
     top: 0;
     transform-style: flat;
     pointer-events: none;
