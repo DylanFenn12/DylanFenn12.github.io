@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 255, 162);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:50vw;
+    height:30px;
+    background-color: rgb(255, 0, 238);
+}
+nav a{
+    width:10vw;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    line-height: 30px;
+}
+
+h1{
+    color: rgb(255, 0, 0);
+}
+.image-container{
+    width:50vw;
+    height: 50vh;
+    background-image: url(img/drake\ 1.png);
+    background-size: cover;
+}
+
+#red-ball{
+    background-color: rgb(234, 255, 0);
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    position: absolute;
+    animation: ballmove 2s infinite;
+    left:25vw;
+    top: 10vh;
+}
+
+
+nav a:hover{
+transition: 1s;
+    background-color: rgb(251, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+.image-container:hover{
+transition: 1s;
+background-image: url(img/drake\ 2.png);
+}
+
+@keyframes ballmove{
+    from{
+       transform: translate(0, 0);
+    }
+    25%{
+        transform: translate(49vw, 0);
+    }
+    50%{
+       transform: translate(49vw, 49vh);
+    }
+    75%{
+       transform: translate(0, 49vh);
+    }
+    to{
+       transform: translate(0, 0);
+}
+}
