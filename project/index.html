@@ -406,7 +406,7 @@
 
 <script>
 function toggleDetails(button) {
-const card = button.parentElement.parentElement;
+const card = button.closest('.concert-card');
 card.classList.toggle('active');
 }
 </script>
