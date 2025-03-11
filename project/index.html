@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orchestra Concerts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>Orchestra Concerts</h1>
+</header>
+
+<div class="concert-container">
+<div class="concert-card">
+<img src="squareimage.png" alt="Concert Image" class="concert-image">
+
+<div class="concert-info">
+<h2>Concert Name</h2>
+<p>City, Date</p>
+<p>Venue Name</p>
+<p>Something Else</p>
+</div>
+
+<div class="concert-button">
+<button onclick="toggleDetails(this)">More Details</button>
+</div>
+
+<div class="concert-description">
+<p>Concert Description</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function toggleDetails(button) {
+const card = button.parentElement.parentElement;
+card.classList.toggle('active');
+}
+</script>
+
+
+
+</body>
+</html>
