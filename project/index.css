@@ -106,6 +106,14 @@ grid-column: span 2;
 padding: 1px;
 }
 
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 2vw;
+}
+
 .concert-description p {
     word-wrap: break-word;
     padding: 10px 0;
