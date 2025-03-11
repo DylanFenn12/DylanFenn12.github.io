@@ -118,7 +118,7 @@ padding: 1px;
     opacity: 1;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2500px) {
     .concert-container {
         grid-template-columns: 1fr 1fr;
         padding: 2vw;
