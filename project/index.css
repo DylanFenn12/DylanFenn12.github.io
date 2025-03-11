@@ -113,7 +113,7 @@ padding: 1px;
 }
 
 .concert-card.active .concert-description {
-    max-height: 400px;
+    max-height: 700px;
     transform: scaleY(1);
     opacity: 1;
 }
