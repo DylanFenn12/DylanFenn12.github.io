@@ -48,7 +48,6 @@ align-items: start;
     transition: transform 0.2s;
     row-gap: 5px;
     min-height: 450px;
-    
 }
 
 .concert-card:hover {
