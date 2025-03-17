@@ -186,4 +186,7 @@ footer {
     .concert-description p {
         font-size: 3vw;
     }
+    .concert-card {
+        min-height: 100px;
+    }
 }
