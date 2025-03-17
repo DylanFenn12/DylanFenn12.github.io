@@ -40,7 +40,7 @@ body {
 
 /*   IS-OPEN STATE   */
 [popover]:popover-open {
-  translate: 0 900px;
+  translate: 0 70vh;
 }
 
 /*   EXIT STATE   */
