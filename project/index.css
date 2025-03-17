@@ -53,7 +53,7 @@ align-items: start;
 
 .concert-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 30px rgb(153, 255, 0);
+    box-shadow: 0 10px 30px rgb(103, 0, 229);
 }
 
 .concert-card img {
@@ -140,7 +140,7 @@ footer {
 
 .concert-card.active .concert-description {
     max-height: 700px;
-    transform: scaleY(1);
+    transform: scaleY(100%);
     opacity: 1;
 }
 
@@ -168,7 +168,7 @@ footer {
 }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 400px) {
     .concert-container {
         grid-template-columns: 1fr;
         padding: 2vw;
