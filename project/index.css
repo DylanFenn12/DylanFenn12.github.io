@@ -6,15 +6,15 @@
 
 body{
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-image: url(images/STARZ.jpeg);
     color: #333333;
 }
 
 header {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: sticky;
     top: 0;
-    background-color: black;
+background-image: url(images/morestars.jpeg);
+    background-size: cover;
     color: white;
     padding: 10px;
     text-align: center;
@@ -23,10 +23,12 @@ header {
 
 header h1 {
     font-size: 4vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 header h3 {
     font-size: 2vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .concert-container {
@@ -47,11 +49,11 @@ align-items: start;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
     row-gap: 5px;
-    min-height: 450px;
 }
 
 .concert-card:hover {
     transform: scale(1.02);
+    box-shadow: 0 10px 30px rgb(153, 255, 0);
 }
 
 .concert-card img {
@@ -63,10 +65,11 @@ align-items: start;
 }
 
 .concert-title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     grid-column: span 2;
     text-align: center;
     margin-bottom: 5px;
+    color: purple;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .concert-info {
@@ -80,6 +83,10 @@ align-items: start;
 
 .concert-info p {
     color: #333333;
+}
+
+.concert-info strong {
+    color: purple;
 }
 
 .concert-button {
@@ -137,7 +144,7 @@ footer {
     opacity: 1;
 }
 
-@media screen and (max-width: 2500px) {
+@media screen and (max-width: 20500px) {
     .concert-container {
         grid-template-columns: 1fr 1fr;
         padding: 2vw;
@@ -155,6 +162,9 @@ footer {
 }
 .concert-description p {
     font-size: 1.3vw;
+}
+.concert-card {
+    min-height: 500px;
 }
 }
 
