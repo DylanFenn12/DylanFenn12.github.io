@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript ICA10</title>
+</head>
+<body>
+<h1 id="header">THIS WILL CHANGE</h1>
+<button id="change">Change</button>
+<h2 id="subheader">Hover Me!</h2>
+<script>
+    document.getElementById("change").addEventListener("click", function() {
+        let header = document.getElementById("header");
+        header.innerHTML = header.innerHTML === "THIS WILL CHANGE" ? "TOLD YA!" : "THIS WILL CHANGE";
+    });
+    document.getElementById("subheader").addEventListener("mouseover", function() {
+this.innerHTML = "Get off me!";
+    });
+    document.getElementById("subheader").addEventListener("mouseout", function() {
+    this.innerHTML = "Hover Me!";
+    });
+</script>
+</body>
+</html>
