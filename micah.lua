@@ -12,7 +12,3 @@ function Main()
 end
 
 reaper.defer(Main)
---[[ 
-  This script is designed to be used with the MIDI Transfer extension for Reaper.
-  It listens for a signal from the extension and pauses the transport when it receives data.
-  The script uses gmem to communicate with the MIDI Transfer extension.
