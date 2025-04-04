@@ -9,6 +9,8 @@ body {
   background: linear-gradient(to top, rgb(0, 0, 255), rgb(255, 255, 255));
   margin: 0;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .full-img {
