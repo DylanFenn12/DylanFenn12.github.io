@@ -65,7 +65,7 @@ function switchToImageQuote() {
 if (!showingImage) {
     textQuote.textContent = '';
     answer.textContent = '';
-    image.src = 'https://zenquotes.io/api/image?cacheBust=${timestamp}' 
+    image.src = 'https://zenquotes.io/api/image' 
     image.style.display = 'block';
 } else {
     image.style.display = 'none';
