@@ -71,6 +71,7 @@ if (!showingImage) {
     image.style.display = 'none';
     getquote();
 }
+showingImage = !showingImage;
 }
 
 
