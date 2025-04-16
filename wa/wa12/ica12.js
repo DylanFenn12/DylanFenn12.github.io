@@ -1,14 +1,19 @@
 let CurrentQuote = null;
+let showingImage = false;
 const quotebuttonnew = document.querySelector('#js-new-quote');
 const answerButton = document.querySelector('#js-tweet');
+const switchButton = document.querySelector('#switch');
 
 quotebuttonnew.addEventListener('click', getquote);
 answerButton.addEventListener('click', showAuthor);
+switchButton.addEventListener('click', switchToImageQuote);
+
 
 function getquote() {
     console.log('Button clicked!');
   
     const endpoint = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://zenquotes.io/api/random') + '&disableCache=true';
+
   
     fetch(endpoint)
       .then((response) => {
@@ -32,14 +37,15 @@ function getquote() {
         alert('Error fetching quote. Please try again later.');
       });
   }
-  
 
 function displayQuote(data) {
 const quoteText = document.getElementById('js-quote-text');
 const answerText = document.getElementById('js-answer-text');
+const image = document.getElementById('js-quote-image');
 
 quoteText.textContent = data.q;
 answerText.textContent = '';
+image.style.display = 'none';
 }
 
 function showAuthor() {
@@ -51,5 +57,21 @@ else {
     alert('No quote loaded. Please fetch a new quote first.');
 }
 }
+
+function switchToImageQuote() {
+    const image = document.getElementById('js-quote-image');
+    const textQuote = document.getElementById('js-quote-text');
+    const answer = document.getElementById('js-answer-text');
+if (!showingImage) {
+    textQuote.textContent = '';
+    answer.textContent = '';
+    image.src = 'https://zenquotes.io/api/image'
+    image.style.display = 'block';
+} else {
+    image.style.display = 'none';
+    getquote();
+}
+}
+
 
 document.addEventListener('DOMContentLoaded', getquote);
