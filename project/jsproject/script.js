@@ -54,10 +54,10 @@ function initPhysics() {
     ]);
 
     //pegs
-    for (let row = 0; row < ROWS; row++) {
+    for (let row = 0; row < 10; row++) {
         for (let col = 0; col < COLS; col++) {
     const pegX = (width / COLS) * 1.3;
-    const pegY = (height - 60) / (ROWS + 1);
+    const pegY = ((height - 20) / (ROWS + 1)) * 1.1;
     const x = -33 + ((col + (row % 2 ? .5 : 0)) * pegX) + (pegX / 2);
     const y = (row + 1) * pegY;
 
@@ -115,7 +115,7 @@ Events.on(engine, "collisionStart", e => {
     //digits on ball
     Events.on(render, "afterRender", () => {
         const context = render.context;
-        context.font = "bold 20px Arial";
+        context.font = "bold 15px Arial";
         context.fillStyle = "white";
         context.textAlign = "center";
         context.textBaseline = "middle";
@@ -142,7 +142,7 @@ for (let i = 1; i < 10; i++) {
 }
 
 function dropBall(n){
-const ball = Bodies.circle(Math.random() * board.clientWidth, 20, 13.5, {
+const ball = Bodies.circle(Math.random() * board.clientWidth, 10, 12, {
     label: "ball",
     restitution: 1,     // bounciness of ball
     render: {
