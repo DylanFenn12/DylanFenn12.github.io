@@ -10,21 +10,16 @@
 <div id="plinko-container">
     <h1>Plinko Phone Number Game</h1>
 <div id="instructions">
-<p>Select a digit from (0-9) and click <strong>OK</strong> to drop a ball.<br>
+<p>Select a digit from (0-9) and <strong>CLICK ALONG THE TOP</strong> to drop a ball.<br>
 Balls will stick to the bins to form a number. Use the <strong>Undo</strong> button to remove the last ball.<br>
 Use the <strong>Reset</strong> button to clear the board or click <strong>ENTER</strong> to see your final number!</p>
 </div>
 <div id="controls">
     <label>Digit: <input type="number" id="digit-input" min="0" max="9"></label>
-    <button id="ok">OK</button>
     <button id="undo">Undo</button>
     <button id="reset">Reset</button>
 </div>
 <div id="board"></div>
-<div id="final-number">
-    <span class="label">Phone Number:</span>
-    <span id="phone-display">___-___-____</span>
-</div>
 <button id="enter">ENTER</button>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>

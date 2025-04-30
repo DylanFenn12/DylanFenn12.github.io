@@ -2,7 +2,6 @@
 const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
 
 const board = document.getElementById("board");
-const display = document.getElementById("phone-display");
 const input = document.getElementById("digit-input");
 
 const COLS = 12, ROWS = 12;
@@ -11,19 +10,6 @@ let engine, world, render, runner;
 let bins = [];
 let balls = [];
 
-//updatedisplay function
-function updateDisplay() {
-  let phonenumbers = "";
-    for (let i = 0; i < digits.length; i++) {
-if (i === 3 || i === 6) {
-      phonenumbers += "-" + (digits[i] ?? "_");
-    }
-    else {
-      phonenumbers += digits[i] ?? "_";
-    }
-  }
-  display.textContent = phonenumbers;
-}
 
 function initPhysics() {
   const width = board.clientWidth;
@@ -64,7 +50,9 @@ function initPhysics() {
     Composite.add(world,
         Bodies.circle(x, y, 12, {
             isStatic: true,
-            restitution: 1,
+            restitution: .9,
+            friction: 0,
+            frictionStatic: 0,
             render: {
                 fillStyle: "white",}
         })
@@ -101,8 +89,6 @@ Events.on(engine, "collisionStart", e => {
             const binIndex = +bin.label.split("_")[1];
             if (digits[binIndex] === null) {
                 digits[binIndex] = ball.digit;
-                updateDisplay();
-                bin.render.fillStyle = "green";
                 Body.setStatic(ball, true);
                 ball._binIndex = binIndex;
             } else {
@@ -115,13 +101,19 @@ Events.on(engine, "collisionStart", e => {
     //digits on ball
     Events.on(render, "afterRender", () => {
         const context = render.context;
-        context.font = "bold 15px Arial";
+        context.font = "bold 18px Arial";
         context.fillStyle = "white";
         context.textAlign = "center";
         context.textBaseline = "middle";
         world.bodies.forEach(body => {
             if (body.label === "ball") {
                 context.fillText(body.digit, body.position.x, body.position.y);
+            }
+            if (body.label.startsWith("bin_")) {
+                const binIndex = +body.label.split("_")[1];
+                if (digits[binIndex] !== null) {
+                    context.fillText(digits[binIndex], body.position.x, body.position.y);
+                }
             }
         });
     });
@@ -141,10 +133,13 @@ for (let i = 1; i < 10; i++) {
 }
 }
 
-function dropBall(n){
-const ball = Bodies.circle(Math.random() * board.clientWidth, 10, 12, {
+function dropBall(n, dropx){
+const x = (typeof dropx === "number") ? dropx : Math.random() * board.clientWidth;
+const ball = Bodies.circle(x, 10, 12, {
     label: "ball",
     restitution: 1,     // bounciness of ball
+    friction: 0,
+    frictionStatic: 0,
     render: {
         fillStyle: "red"}
 });
@@ -154,16 +149,17 @@ balls.push(ball);
 }
 
 //Event Listeners
-document.getElementById("ok").addEventListener("click", () => {
+board.addEventListener("click", (e) => {
     const value = parseInt(input.value);
-    if (value >= 0 && value <= 9) {
-        dropBall(value);
-    }
-    else {
+    if (isNaN(value) || value < 0 || value > 9) {
         alert("Please enter a digit between 0 and 9");
         return;
     }
+    const rect = board.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    dropBall(value, x);
 });
+
 
 document.getElementById("undo").addEventListener("click", () => {
     const lastBall = balls.pop();
@@ -174,7 +170,6 @@ document.getElementById("undo").addEventListener("click", () => {
     if (lastBall._binIndex != null) {
         digits[lastBall._binIndex] = null;
         bins[lastBall._binIndex].render.fillStyle = "black";
-        updateDisplay();
     }
     Composite.remove(world, lastBall);
 });
@@ -185,11 +180,18 @@ document.getElementById("reset").addEventListener("click", () => {
 );
 
 document.getElementById("enter").addEventListener("click", () => {
-    alert(`Phone number entered: ${display.textContent}`);
+    if (digits.includes(null)) {
+        alert("Please fill all digits before entering");
+        return;
+    }
+    const chunk1 = digits.slice(0, 3).join("");
+    const chunk2 = digits.slice(3, 6).join("");
+    const chunk3 = digits.slice(6, 10).join("");
+    const phone = [chunk1, chunk2, chunk3].join("-");
+    alert(`Phone number entered: ${phone}`);
 });
 
 //init
 window.addEventListener("load", () => {
     initPhysics();
-    updateDisplay();
 });
