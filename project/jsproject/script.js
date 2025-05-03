@@ -1,4 +1,7 @@
-//Import all of the elements from Matter.js library
+// Code for the Plinko game
+//  By: Dylan Fenn
+// Credit to Matter.js for the physics engine
+//  https://brm.io/matter-js
 const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
 
 const board = document.getElementById("board");
